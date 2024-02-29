@@ -1,0 +1,127 @@
+.cart-inner{
+   padding: 50px 100px;
+}
+
+.cart-products{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #cccccc37;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px Solid #ccc;
+    padding: 10px;
+    font-size: 13px;
+    gap: 20px;
+}
+
+.cart-product-image{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.cart-product-image img{
+    width: 60px;
+}
+
+.remove-cart button{
+    padding:10px 15px;
+    border: 0;
+    outline: 0;
+    background-color:rgb(255, 187, 0);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.subtotal{
+    margin: 50px 0;
+}
+
+.subtotal hr{
+    width: 65%;
+    margin: 30px auto;
+    background-color:skyblue;
+    height: 3px;
+    border: 0;
+}
+
+.subtotal h2{
+    text-align: center;
+    font-weight: 400;
+}
+
+.subtotal .sub-detail{
+    margin: auto;
+}
+.sub-detail{
+    width: 400px;
+}
+
+.sub-detail hr{
+    width: 100%;
+    margin: 10px 0;
+    background-color: #ccc;
+}
+
+.total , .shipping, .discount{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.shipping span:nth-of-type(2){
+    color: green;
+}
+
+.sub-detail button{
+    width: 100%;
+    padding: 12px;
+    background-color: green;
+    border: 0;
+    outline: 0;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 30px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.empty{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 100px 0;
+    font-size: 22px;
+}
+
+/* ////////////////////responsive ness */
+
+
+@media only screen and (max-width:1000px){
+    .remove-cart button{
+        font-size: 12px;
+    }
+    .cart-product-image img{
+        width: 50px;
+    }
+    .cart-product-image p{
+        font-size: 11px;
+    }
+}
+
+@media only screen and (max-width:580px){
+    .cart-products{
+        flex-wrap: wrap;
+    }
+    .cart-inner{
+        padding: 20px;
+     }
+     .sub-detail button{
+        font-size: 14px;
+     }
+     .sub-detail{
+        width: 200px;
+    }
+}

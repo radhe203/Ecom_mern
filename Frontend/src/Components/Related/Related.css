@@ -1,0 +1,94 @@
+.Related-item{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    padding: 0 180px;
+    margin: 100px 0;
+}
+.Related{
+    margin: 100px 0;
+}
+.Related h1{
+    color: #171717;
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.Related hr{
+    height: 6px;
+    width: 65%;
+    border-radius: 10px;
+    background-color:#252525;
+    text-align: center;
+    margin: 20px auto;
+}
+
+
+/* ///////////////////////resoponsive ness */
+
+@media only screen and (max-width:1240px){
+    .Related h1{
+        font-size: 32px;
+    }
+    .Related hr{
+        height: 4px;
+    }
+    .Related{
+        margin: 50px 0;
+    }
+    .Related-item{
+        gap:20px;
+    margin: 50px 0;
+
+    }
+}
+
+@media only screen and (max-width:1040px){
+    .Related-item{
+    padding: 0 40px;
+    }
+}
+
+@media only screen and (max-width:840px){
+    .Related-item{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .Related h1{
+        font-size: 19px;
+    }
+    .Related hr{
+        height: 2px;
+    }
+}
+
+@media only screen and (max-width:640px){
+    
+    .Related-item{
+        gap:10px;
+        grid-template-columns: 1fr 1fr;
+        padding: 0 10px;
+    }
+
+
+    .Related-item .item{
+        width: 150px;
+    }
+
+}
+
+@media only screen and (max-width:370px){
+    .Related-item{
+        gap:10px;
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+
+
+    .Related-item .item{
+        width: 200px;
+        align-self: center;
+        justify-self: center;
+    }
+
+}

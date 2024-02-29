@@ -1,0 +1,62 @@
+.offer {
+  width: 75vw;
+  margin: auto;
+  padding: 50px;
+  height: fit-content;
+  margin-top: 50px;
+  background: linear-gradient(180deg, #e1ffea22 60%, #fde1ff);
+}
+
+.offer-right img {
+  width: 300px;
+}
+
+.offer-left h1 {
+  font-size: 45px;
+}
+
+.offer-left h2 {
+  font-size: 19px;
+}
+
+/* responsive ness */
+
+@media only screen and (max-width: 1240px) {
+  .offer {
+    margin-top: 30px;
+    padding: 30px;
+  }
+  .offer-left h1 {
+    font-size: 35px;
+  }
+  .offer-right img {
+    width: 250px;
+  }
+}
+@media only screen and (max-width: 1240px) {
+  .offer {
+    width: 90%;
+    padding: 30px;
+    margin-top: 25px;
+  }
+  .offer-right img {
+    width: 200px;
+  }
+  .offer-left h1 {
+    font-size: 26px;
+    line-height: 2rem;
+  }
+  .offer-left h2 {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .offer-left h1 {
+    font-size: 19px;
+    line-height: 1.8rem;
+  }
+  .offer-left h2 {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,112 @@
+.hero {
+  height: 90vh;
+  background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 150px;
+}
+
+.hero-image img {
+  width: 470px;
+}
+
+.hero-left {
+  flex: 1;
+}
+
+.hero-left h2 {
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.hero-left h1 {
+  font-size: 62px;
+  line-height: 4rem;
+  font-weight: 500;
+}
+
+.hero-left h1 > img {
+  width: 80px;
+}
+
+.hero-left > button {
+  font-size: 14px;
+  padding: 12px 50px;
+  text-align: center;
+  background-color: red;
+  color: #fff;
+  border: 0;
+  border-radius: 30px;
+  position: relative;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.hero-left > button > img {
+  width: 15px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(-50%, -50%);
+}
+
+/* responsive ness */
+
+@media only screen and (max-width: 1240px) {
+  .hero-image img {
+    width: 350px;
+  }
+  .hero-left h1 {
+    font-size: 42px;
+    line-height: 3rem;
+    font-weight: 600;
+  }
+  .hero-left h1 > img {
+    width: 50px;
+  }
+}
+
+@media only screen and (max-width: 1040px) {
+  .hero {
+    padding: 40px;
+    height: fit-content;
+  }
+  .hero-image img {
+    width: 350px;
+  }
+  .hero-left h1 {
+    font-size: 32px;
+    line-height: 2.5rem;
+    font-weight: 600;
+  }
+  .hero-left h1 > img {
+    width: 40px;
+  }
+  .hero-left h2 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .hero-left > button {
+    padding: 12px 30px;
+    font-size: 12px;
+  }
+  .hero-left > button > img {
+    right: 5px;
+    width: 10px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+.hero{
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+}
+.hero-image img {
+  width: 200px;
+}
+.hero-left h1 {
+  font-size: 19px;
+  line-height:1.8rem;
+}
+}
