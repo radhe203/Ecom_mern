@@ -2,7 +2,7 @@ const Product = require("../models/product.models.js");
 
 
 async function AddProduct(req,res,next){
-
+console.log(req.body)
     let All_product = await Product.find({})
     let id;
     if(All_product.length > 0){

@@ -16,26 +16,25 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout/>}>
-
-        <Route path="/" element={<Shop />} />
-        <Route
-          path="/mens"
-          element={<ShopCategory category={"men"} banner={banner_men} />}
-        />
-        <Route
-          path="/womens"
-          element={<ShopCategory category={"women"} banner={banner_women} />}
-        />
-        <Route
-          path="/kids"
-          element={<ShopCategory category={"kid"} banner={banner_kids} />}
-        />
-        <Route path="/product" element={<Product />}>
-          <Route path=":productid" element={<Product />} />
-        </Route>
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<LoginSignup />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Shop />} />
+          <Route
+            path="/mens"
+            element={<ShopCategory category={"men"} banner={banner_men} />}
+          />
+          <Route
+            path="/womens"
+            element={<ShopCategory category={"women"} banner={banner_women} />}
+          />
+          <Route
+            path="/kids"
+            element={<ShopCategory category={"kid"} banner={banner_kids} />}
+          />
+          <Route path="/product" element={<Product />}>
+            <Route path=":productid" element={<Product />} />
+          </Route>
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<LoginSignup />} />
         </Route>
       </Routes>
     </BrowserRouter>

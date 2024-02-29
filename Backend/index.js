@@ -40,7 +40,7 @@ const upload = multer({ storage: storage });
 //create uploading endpoint for images
 app.use('/images',express.static(path.join(__dirname, "upload","images")));
 
-app.post("/upload", upload.single("product"), (req, res) => {
+app.post("/backend/upload", upload.single("product"), (req, res) => {
   res.json({
     success: 1,
     image_url: `http//localhost:${port}/images/${req.file.filename}`,
@@ -51,7 +51,7 @@ app.post("/upload", upload.single("product"), (req, res) => {
 
 //routes 
 
-app.use('/product',ProductRouter)
+app.use('/backend/product',ProductRouter)
 
 
 
