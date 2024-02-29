@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const cors = require("cors");
 const path = require("path");
+const ProductRouter = require("./routes/product.routes.js");
 const port = 3000;
 app.use(express.json());
 app.use(cors());
@@ -45,7 +46,17 @@ app.post("/upload", upload.single("product"), (req, res) => {
     image_url: `http//localhost:${port}/images/${req.file.filename}`,
   });
 });
-// app.post();
+
+
+
+//routes 
+
+app.use('/product',ProductRouter)
+
+
+
+
+
 
 app.listen(port, (error) => {
   if (!error) {
