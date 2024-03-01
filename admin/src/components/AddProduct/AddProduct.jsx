@@ -78,7 +78,7 @@ function AddProduct() {
         <div>
           <p>Price</p>
           <input
-            type="text"
+            type="Number"
             value={detail.old_price}
             name="old_price"
             placeholder="Type Here"
@@ -89,7 +89,7 @@ function AddProduct() {
         <div>
           <p>Offer Price</p>
           <input
-            type="text"
+            type="Number"
             value={detail.new_price}
             name="new_price"
             placeholder="Type Here"
