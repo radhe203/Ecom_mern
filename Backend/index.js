@@ -42,7 +42,7 @@ app.use('/images',express.static(path.join(__dirname, "upload","images")));
 
 app.post("/backend/upload", upload.single("product"), (req, res) => {
   res.json({
-    success: 1,
+    success: true,
     image_url: `http//localhost:${port}/images/${req.file.filename}`,
   });
 });

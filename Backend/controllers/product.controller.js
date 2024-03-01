@@ -20,7 +20,6 @@ console.log(req.body)
         new_price:req.body.new_price,
         old_price:req.body.old_price
     })
-    console.log(Product)
     await product.save()
     console.log("saved")
     res.json({

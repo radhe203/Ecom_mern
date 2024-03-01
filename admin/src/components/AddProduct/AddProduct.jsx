@@ -10,32 +10,30 @@ function AddProduct() {
     category: "",
     image: "",
   });
-  console.log(detail)
   function handelChange(e) {
     Setdetail({ ...detail, [e.target.name]: e.target.value });
   }
+
   async function submitHandel() {
+    let product = detail;
     try {
       const formData = new FormData();
       formData.append("product", image);
-      console.log(typeof formData);
 
       const res = await fetch("/backend/upload", {
         method: "POST",
         headers: {
           accepts: "application/json",
         },
-        body:formData,
+        body: formData,
       });
 
       const data = await res.json();
-      if (data.success == false) {
-        console.log(data.message);
-        return;
-      }
-      console.log(data)
-      Setdetail({...detail,image:data.image_url})
 
+      if (data.success === true) {
+        product.image = data.image_url;
+        console.log(product)
+      }
     } catch (error) {
       console.log(error);
       return;
@@ -45,10 +43,10 @@ function AddProduct() {
       const res = await fetch("/backend/product/addproduct", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json",
-          },
+          "Content-Type": "application/json",
+        },
 
-        body:JSON.stringify(detail)
+        body: JSON.stringify(product),
       });
 
       const data = await res.json();
@@ -57,8 +55,6 @@ function AddProduct() {
         console.log(data.message);
         return;
       }
-
-
     } catch (error) {
       console.log(error);
       return;
