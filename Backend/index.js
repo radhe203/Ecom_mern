@@ -7,6 +7,7 @@ const multer = require("multer");
 const cors = require("cors");
 const path = require("path");
 const ProductRouter = require("./routes/product.routes.js");
+const UserRouter = require("./routes/user.routes.js")
 const port = 3000;
 app.use(express.json());
 app.use(cors());
@@ -52,7 +53,7 @@ app.post("/backend/upload", upload.single("product"), (req, res) => {
 //routes 
 
 app.use('/backend/product',ProductRouter)
-
+app.use('/backend/user',UserRouter)
 
 
 
