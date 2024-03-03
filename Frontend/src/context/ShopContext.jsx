@@ -38,7 +38,6 @@ const ShopContextProvider = ({ children }) => {
           body: JSON.stringify({ cart, id:currentUser.id }),
         });
         const data = await res.json();
-        console.log(data);
       } catch (error) {
         console.log(error);
       }

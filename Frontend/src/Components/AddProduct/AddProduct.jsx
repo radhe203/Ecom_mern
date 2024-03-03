@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./AddProduct.css";
 import { app } from "../../../firebase.js";
 import {
@@ -8,7 +8,9 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import upload_area from "../../assets/upload_area.svg";
+import { ShopContext } from "../../context/ShopContext.jsx";
 function AddProduct() {
+  const {currentUser} = useContext(ShopContext)
   const [image, SetImage] = useState(null);
   const [imageError, SetImageError] = useState(null);
   const [uploading, SetUploading] = useState(false);
@@ -19,6 +21,7 @@ function AddProduct() {
     new_price: 5,
     category: "",
     image: "",
+    userRef:currentUser.id
   });
   function handelChange(e) {
     Setdetail({ ...detail, [e.target.name]: e.target.value });

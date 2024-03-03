@@ -33,6 +33,10 @@ const productSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
+  userRef:{
+    type:String,
+    requireed:true
+  }
 },{timestamps:true});
 
 const Product = mongoose.model("product", productSchema);

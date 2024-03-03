@@ -32,7 +32,7 @@ function Profile() {
             </div>
 
             <div className="col-4">
-              <h4 className="red"><Link to={'/admin'}>Become An Seller</Link></h4>
+              <h4 className="red"><Link to={'/admin'}>Become a seller</Link></h4>
             </div>
           </div>
         </div>

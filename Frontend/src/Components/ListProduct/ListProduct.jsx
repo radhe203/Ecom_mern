@@ -1,16 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./ListProduct.css";
+import { ShopContext } from "../../context/ShopContext";
 function ListProduct() {
   const [allProduct, SetallProduct] = useState([]);
-
+  const {currentUser} = useContext(ShopContext)
   async function fetchInfo() {
-    const res = await fetch("/backend/product/allproduct");
+    const res = await fetch("/backend/product/userproduct",{
+      method:'POST',
+      headers:{
+        'Content-Type':'Application/json'
+      },
+      body:JSON.stringify({id:currentUser.id})
+    });
     const data = await res.json();
-    SetallProduct(data);
+    SetallProduct(data)
   }
+
   useEffect(() => {
     fetchInfo();
   }, []);
+
 
   async function deleteHandel(id){
     const res = await fetch("/backend/product/removeproduct",{
@@ -18,7 +27,7 @@ function ListProduct() {
       headers:{
         'Content-Type':'Application/json'
       },
-      body:JSON.stringify({id})
+      body:JSON.stringify({prod_id:id,id:currentUser.id})
     });
     const data = await res.json();
     if(data.success=== true){
