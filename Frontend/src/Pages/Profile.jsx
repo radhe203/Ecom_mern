@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./CSS/Profile.css"
 import { ShopContext } from "../context/ShopContext";
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 function Profile() {
   const { currentUser, setCurrentUser } = useContext(ShopContext);
   const navigate = useNavigate()
@@ -17,22 +17,22 @@ function Profile() {
     }
   }
   return (
-    <section class="profile">
-      <header class="header">
-        <div class="details">
-          <div class="stats">
-            <div class="col-4">
+    <section className="profile">
+      <header className="header">
+        <div className="details">
+          <div className="stats">
+            <div className="col-4">
               <h4>{currentUser.name}</h4>
             </div>
-            <div class="col-4">
+            <div className="col-4">
               <h4>{currentUser.email}</h4>
             </div>
-            <div class="col-4">
+            <div className="col-4">
               <h4 className="red" onClick={logout}>Log Out</h4>
             </div>
 
-            <div class="col-4">
-              <h4 className="red">Become An Seller</h4>
+            <div className="col-4">
+              <h4 className="red"><Link to={'/admin'}>Become An Seller</Link></h4>
             </div>
           </div>
         </div>

@@ -51,7 +51,7 @@ function Navbar() {
               Shop {Menu === "Shop" ? <hr /> : null}
             </li>
           </Link>
-          <Link to="/mens">
+          <Link to="mens">
             {" "}
             <li
               onClick={() => {
@@ -61,7 +61,7 @@ function Navbar() {
               Men {Menu === "Men" ? <hr /> : null}{" "}
             </li>
           </Link>
-          <Link to="/womens">
+          <Link to="womens">
             {" "}
             <li
               onClick={() => {
@@ -71,7 +71,7 @@ function Navbar() {
               Women {Menu === "Women" ? <hr /> : null}{" "}
             </li>
           </Link>
-          <Link to="/kids">
+          <Link to="kids">
             {" "}
             <li
               onClick={() => {
@@ -85,12 +85,15 @@ function Navbar() {
 
         <div className="log-cart">
           <div className="login">
-            <button>
-            {currentUser.email && currentUser.name && currentUser.email ?   <Link to="/profile">Profile</Link> :  <Link to="/login">LogIn</Link>}
-            </button>
+            
+
+            {currentUser.email && currentUser.name && currentUser.email ?   <Link to="/profile"><button>Profile</button></Link> :  <Link to="login"><button>LogIn</button></Link>}
+
+
+            
           </div>
           <div className="cart">
-            <Link to="/cart">
+            <Link to="cart">
               <img src={cart_icon} alt="" />
             </Link>
             <small className="item-count">{cart.length}</small>
