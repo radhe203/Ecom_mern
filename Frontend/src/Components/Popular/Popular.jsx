@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./Popular.css"
-import data_product from "../Assets/data"
 import Item from "../Item/Item"
+import { ShopContext } from '../../context/ShopContext'
 function Popular() {
+    const {data_product} = useContext(ShopContext)
   return (
    <div className="popular">
     <h1>Popular in Women</h1>

@@ -79,6 +79,17 @@
     cursor: pointer;
 }
 
+.upload-btn{
+  margin-top:10px;
+  display: block;
+  padding: 10px 50px;
+  background-color: green;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+
 @media only screen and (max-width:800px){
     .add-product{
         width:auto;

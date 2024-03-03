@@ -11,7 +11,7 @@ function Navbar() {
   const [Menu, setMenu] = useState("Shop");
   const [hams, setham] = useState("false");
   const { cart } = useContext(ShopContext);
-
+  const { currentUser } = useContext(ShopContext);
   return (
     <>
       <nav className="navbar">
@@ -86,7 +86,7 @@ function Navbar() {
         <div className="log-cart">
           <div className="login">
             <button>
-              <Link to="/login">LogIn</Link>
+            {currentUser.email && currentUser.name && currentUser.email ?   <Link to="/profile">Profile</Link> :  <Link to="/login">LogIn</Link>}
             </button>
           </div>
           <div className="cart">

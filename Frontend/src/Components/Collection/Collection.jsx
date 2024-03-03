@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./Collection.css"
-import new_collections from "../Assets/new_collections"
 import Item from "../Item/Item"
+import { ShopContext } from '../../context/ShopContext'
 function Collection() {
+    const {new_collections} = useContext(ShopContext)
   return (
    <div className="collection">
     <h1>New Collection</h1>

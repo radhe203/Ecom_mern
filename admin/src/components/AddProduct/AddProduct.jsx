@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import "./AddProduct.css";
+import { app } from "../../../firebase.js";
+import {
+  getStorage,
+  getDownloadURL,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
 import upload_area from "../../assets/upload_area.svg";
 function AddProduct() {
   const [image, SetImage] = useState(null);
+  const [imageError, SetImageError] = useState(null);
+  const [uploading, SetUploading] = useState(false);
+  const [success, setSuccess] = useState(0);
   const [detail, Setdetail] = useState({
     name: "",
     old_price: 5,
@@ -14,30 +24,38 @@ function AddProduct() {
     Setdetail({ ...detail, [e.target.name]: e.target.value });
   }
 
-  async function submitHandel() {
-    let product = detail;
-    try {
-      const formData = new FormData();
-      formData.append("product", image);
-
-      const res = await fetch("/backend/upload", {
-        method: "POST",
-        headers: {
-          accepts: "application/json",
-        },
-        body: formData,
-      });
-
-      const data = await res.json();
-
-      if (data.success === true) {
-        product.image = data.image_url;
-        console.log(product)
+  async function ImageUpload() {
+    SetUploading(true);
+    setSuccess(0);
+    SetImageError(false);
+    const storage = getStorage(app);
+    const filename = new Date().getTime() + image.name;
+    const storageRef = ref(storage, filename);
+    const uploadTask = uploadBytesResumable(storageRef, image);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setSuccess(progress);
+      },
+      (error) => {
+        SetImageError(true);
+        SetUploading(false);
+        setSuccess(0);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) => {
+          Setdetail({ ...detail, image: downloadUrl });
+          SetUploading(false);
+        });
       }
-    } catch (error) {
-      console.log(error);
-      return;
-    }
+    );
+  }
+
+  async function submitHandel(e) {
+    e.preventDefault();
 
     try {
       const res = await fetch("/backend/product/addproduct", {
@@ -46,15 +64,14 @@ function AddProduct() {
           "Content-Type": "application/json",
         },
 
-        body: JSON.stringify(product),
+        body: JSON.stringify(detail),
       });
 
       const data = await res.json();
-
-      if (data.success == false) {
-        console.log(data.message);
+        alert("product added")
+        SetUploading(false);
         return;
-      }
+
     } catch (error) {
       console.log(error);
       return;
@@ -62,7 +79,7 @@ function AddProduct() {
   }
 
   return (
-    <div className="add-product">
+    <form className="add-product" onSubmit={submitHandel}>
       <div className="addproduct-itemfield">
         <p>Product Tittle</p>
         <input
@@ -118,20 +135,45 @@ function AddProduct() {
         <label htmlFor="file-input">
           <img src={image ? URL.createObjectURL(image) : upload_area} />
         </label>
+        {imageError && (
+          <p style={{ color: "red", fontSize: "12px" }}>
+            image size must be less than 2Mb
+          </p>
+        )}
+        {uploading && !imageError ? (
+          <p style={{ color: "green", fontSize: "12px" }}>
+            Image uploading {success}%...
+          </p>
+        ) : (
+          ""
+        )}
+        {success < 100 && (
+          <button
+            type="button"
+            onClick={() => ImageUpload()}
+            className="upload-btn"
+          >
+            {uploading ? "Uploading" : "Upload Image"}
+          </button>
+        )}
+
         <input
           type="file"
           hidden
           name="image"
           id="file-input"
           onChange={(e) => {
+            setSuccess(0);
             SetImage(e.target.files[0]);
           }}
         />
-        <button className="addproduct-btn" onClick={submitHandel}>
-          ADD
-        </button>
+        {success >= 100 && (
+          <button className="addproduct-btn" type="submit">
+            ADD Product
+          </button>
+        )}
       </div>
-    </div>
+    </form>
   );
 }
 

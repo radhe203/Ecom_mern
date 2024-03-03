@@ -52,7 +52,6 @@ function Cart() {
           <button>Proceed to continue</button>
         </div>
       </div>)}
-
       {
         cart.length <=0  && (
           <div className="empty">
@@ -67,6 +66,7 @@ function Cart() {
 export default Cart;
 
 /*
+//
 
 <div className="cart-products">
           <div className="cart-product-image">

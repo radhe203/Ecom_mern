@@ -3,9 +3,11 @@ import { useParams } from 'react-router-dom';
 import BreadCrums from "../Components/BreadCrums/BreadCrums"
 import { ShopContext } from '../context/ShopContext';
 function Product() {
-  const {data} = useContext(ShopContext);
+  const {all_product} = useContext(ShopContext);
   const {productid} = useParams();
-  const product  = data.find( (e) => e.id === Number(productid))
+  const product  = all_product.find( (e) => {
+    return e.id === Number(productid)
+  })
   return (
 
     <div>

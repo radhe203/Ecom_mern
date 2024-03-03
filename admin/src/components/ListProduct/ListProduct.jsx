@@ -8,7 +8,6 @@ function ListProduct() {
     const data = await res.json();
     SetallProduct(data);
   }
-  console.log(allProduct);
   useEffect(() => {
     fetchInfo();
   }, []);

@@ -1,11 +1,10 @@
 import React, { useContext } from 'react'
 import "./Related.css"
-import data_product from "../Assets/data"
 import Item from "../Item/Item"
-import all_product from '../Assets/all_product'
 import { ShopContext } from '../../context/ShopContext'
 function Related() {
-    const {rel} = useContext(ShopContext);
+    const {rel,all_product,} = useContext(ShopContext);
+
   return (
    <div className="Related">
     <h1>Related products</h1>
