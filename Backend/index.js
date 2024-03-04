@@ -8,7 +8,6 @@ const cors = require("cors");
 const ProductRouter = require("./routes/product.routes.js");
 const UserRouter = require("./routes/user.routes.js")
 const port = 3000;
-const __dirname = path.resolve()
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
@@ -37,7 +36,7 @@ app.use('/backend/product',ProductRouter)
 app.use('/backend/user',UserRouter)
 
 //deployment
-app.use(express.static(path.join(_dirname,'client/dist')))
+app.use(express.static(path.join(__dirname,'client/dist')))
 
 app.get('*',(req,res)=>{
   res.sendFile(path.json(__dirname,'client','dist','index.html'))
