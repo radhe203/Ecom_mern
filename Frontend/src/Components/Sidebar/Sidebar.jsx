@@ -6,7 +6,7 @@ import product_list_icon from "../../assets/Product_list_icon.svg";
 function Sidebar() {
   return (
     <div className="sidebar">
-      <Link end style={{ textDecoration: "none" }}>
+      <Link end={"true"} style={{ textDecoration: "none" }}>
         <div className="sidebar-item">
           <img src={product_cart_img} alt="" />
           <p>Add Product</p>
