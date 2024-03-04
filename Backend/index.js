@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
+const __dirname = path.resolve()
 //monodeb
 mongoose
   .connect(process.env.MONGO)
